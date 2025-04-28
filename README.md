@@ -48,7 +48,7 @@ Use a serial terminal (e.g., PuTTY, TeraTerm, or Python + PySerial) on the PC si
 ### 3. ⏰ Digital Clock
 - A real-time digital clock is implemented using counters based on the 50 MHz clock.
 - Time updates every second (tracked using clock divider logic).
-- Clock format displayed: `HH:MM` or `HH:MM:SS` (based on display mode).
+- Clock format displayed: `HH:MM`
 - Clock values are updated and transmitted via UART as well.
 
 ---
