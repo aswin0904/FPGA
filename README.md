@@ -74,7 +74,9 @@ Use a serial terminal (e.g., PuTTY, TeraTerm, or Python + PySerial) on the PC si
 4. Upload to Basys2 using Adept or iMPACT.
 
 ### Photos of the projects 
-
+![Encoder Image](/topview.jpg)
+![Digital Clock](/topview.jpg)
+![Encoder Working video](/topview.mp4)
 ---
 
 
