@@ -75,8 +75,8 @@ Use a serial terminal (e.g., PuTTY, TeraTerm, or Python + PySerial) on the PC si
 
 ### Photos of the projects 
 ![Encoder Image](/topview.jpg)
-![Digital Clock](/topview.jpg)
-![Encoder Working video](/topview.mp4)
+![Digital Clock](/digital clock.jpg)
+![Encoder Working video](/digital clock.mp4)
 ---
 
 
