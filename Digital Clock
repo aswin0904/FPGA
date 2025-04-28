@@ -87,57 +87,29 @@ module seven_segment(
                     number1 <= 0;
 
                     if(number2==23)
-						  begin number2<=0;
-						  end
-						  else begin
-						  number2<=number2+1;
+			begin number2<=0;
+				end
+			else begin
+			number2<=number2+1;
 
                 end end else begin
 					 
 
                     number1 <= number1 + 1;
-						  
-
                 end
-
             end else begin
-
                 sec_co <= sec_co + 1;
-					  
-
             end
-
         end else begin
-
             // Reset when switch is off
-
             number1 <= 0;
-
-           
-
             sec_co  <= 0;
-
         end
-
-        
-
     end
-
-
-
     assign led = t; 
-	 
-
-
-
     always @(*) begin
-
         temp1 = number1;
-
         temp2=number2;
-
-        
-
         // Extract tens place (10s)
 		   bcd_tens2 = 0;
 
