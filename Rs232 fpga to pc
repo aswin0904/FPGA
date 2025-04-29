@@ -100,8 +100,6 @@ always @(posedge clk)
 begin 
 	prev <= curr;	
 	curr <= digit_select ? TxD_data[15:8] : TxD_data[7:0];
-// if(TxD_ready)
-//	curr <= mem[mem_addr];
 	
 	if(TxD_ready) 
 	TxD_shift <= curr; 
@@ -113,8 +111,7 @@ begin
 		4'b0000: if(shift && sw) begin 
 						TxD_state <= 4'b0100;
 						digit_select <= 1;
-						end
-//		4'b0000: if(sw_edge) TxD_state <= 4'b0100;					
+						end					
 		4'b0100: if(BitTick) TxD_state <= 4'b1000;  // start bit
 		4'b1000: if(BitTick) TxD_state <= 4'b1001;  // bit 0
 		4'b1001: if(BitTick) TxD_state <= 4'b1010;  // bit 1
@@ -130,11 +127,6 @@ begin
 							digit_select <= 0;
 							TxD_state <= 4'b0100; end // stop2
 						else TxD_state <= 4'b0000;
-//		4'b0011: if(BitTick)
-//						if(mem_addr<15) begin 
-//							TxD_state <= 4'b0100;
-//							mem_addr <= mem_addr + 1; end 
-//					else TxD_state <= 4'b0000;
 		default: if(BitTick) TxD_state <= 4'b0000;
 	endcase
 end
