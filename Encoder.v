@@ -3,11 +3,9 @@ module top_module(
 	input A,
 	input B,
 	input reset,
-	//input [7:0] angle,
 	output [3:0] anode,
 	output [6:0] num, 
 	output up_count
-	//output [2:0] state
     );
 	wire [8:0] angle;
 	encoder enc(.A(A), .B(B), .clk(clk), .reset(reset), .angle(angle), .up_count(up_count));
@@ -21,7 +19,6 @@ module encoder(
 	input reset,
 	output [8:0] angle,
 	output reg up_count
-	//output reg [2:0] state
     );
 	 
 	wire posedge_A;
@@ -30,7 +27,6 @@ module encoder(
 	wire negedge_B;
 	
 	reg [11:0] counter = 0;
-//	reg up_count;
 	reg A_d;
 	reg B_d; 
 	 
@@ -45,37 +41,8 @@ module encoder(
 	assign posedge_B = ~B_d & B;
 	assign negedge_B = B_d & ~B;
 	
-//	reg [2:0] state;
 	parameter idle = 3'b000, F1 = 3'b001, F2 = 3'b010, F3 = 3'b011,
 									 R1 = 3'b101, R2 = 3'b110, R3 = 3'b111;
-	
-//	always @(posedge clk) begin
-//		case(state)
-//			idle: if(~A & posedge_B)
-//						state <= F1 ;
-//					else if (posedge_A & ~B) 
-//						state <= R1;
-//					else 
-//						state <= idle;
-//			F1: state <= (posedge_A & B) ? F2 : F1;
-//			F2: state <= (A & negedge_B) ? F3 : F2;
-//			F3: if(negedge_A & ~B) begin 
-//					state <= idle; 
-//					up_count <= 1; end
-//				 else begin 
-//					state <= F3; 
-//					up_count <= up_count; end
-//			R1: state <= (posedge_B & A) ? R2 : R1;
-//			R2: state <= (negedge_A & B) ? R3: R2;
-//			R3: if(~A & negedge_B) begin 
-//					state <= idle; 
-//					up_count <= 0; end
-//				 else begin 
-//					state <= R3; 
-//					up_count <= up_count; end
-//			default: state <= idle;
-//		endcase
-//		end
 		
 	reg [3:0] F, R;
 	always @(posedge clk) begin
